@@ -6,4 +6,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+<<<<<<< HEAD
 /out/
+=======
+>>>>>>> 318a110... init

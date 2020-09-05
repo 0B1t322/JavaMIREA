@@ -1,3 +1,5 @@
+package first;
+
 public class HarmonicSeriesProgramm {
 
     public static void main(String[] args) {
