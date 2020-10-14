@@ -6,28 +6,40 @@ import java.awt.event.ActionListener;
 
 public class MainForm extends JFrame {
     private JPanel panel1;
-    private JButton inpBtn1;
-    private JButton inpBtn2;
-    private JButton inpBtn3;
-    private JButton inpBtn4;
-    private JButton inpBtn5;
-    private JButton inpBtn6;
-    private JButton inpBtn7;
-    private JButton inpBtn8;
-    private JButton inpBtn9;
     private JPanel btnsPanel;
+    private JButton intBtn1;
+    private JButton intBtn2;
+    private JButton intBtn3;
+    private JButton intBtn4;
+    private JButton intBtn5;
+    private JButton intBtn6;
+    private JButton intBtn7;
+    private JButton intBtn8;
+    private JButton intBtn9;
+    private JPanel choosePanel;
+    private JRadioButton PvsP; // изначально уже выбрана
+    private JRadioButton PvsB;
+    private JPanel gamePanel;
     private JLabel TextLabel;
+    private JButton startBtn;
 
+    private Component[] btnComponents = btnsPanel.getComponents();
 
     TTTMatr matr = new TTTMatr();
-    Bot bot = new Bot(matr ,btnsPanel.getComponents());
 
-    private ActionListener btnAcrion = new MtBtnActionListener(matr ,TextLabel);
+    private ActionListener rBtnAction;
+    private ActionListener btnAcrion;
+    private ActionListener startBtnAction;
 
+    private Bot bot;
 
     MainForm() {
+        bot = new Bot(matr, btnComponents);
+        actionsInit();
+
         textLabelInit();
         inpBtnInit();
+        rBtnInit();
 
         setVisible(true);
         setSize(500,500);
@@ -36,15 +48,20 @@ public class MainForm extends JFrame {
 
         add(panel1);
 
-
     }
 
     private void inpBtnInit() {
-        Component[] btnComponents = btnsPanel.getComponents();
         for(Component component: btnComponents) {
             JButton btn = (JButton) component;
+            btn.setText("");
             btn.addActionListener(btnAcrion);
         }
+        startBtn.addActionListener(startBtnAction);
+    }
+
+    private void rBtnInit() {
+        this.PvsB.addActionListener(rBtnAction);
+        this.PvsP.addActionListener(rBtnAction);
     }
 
     private void textLabelInit() {
@@ -52,6 +69,19 @@ public class MainForm extends JFrame {
         TextLabel.setVerticalAlignment(SwingConstants.CENTER);
 
         TextLabel.setText("X move");
+    }
+
+    private void actionsInit() {
+        chooseRadioBtnActionListener radioListener = new chooseRadioBtnActionListener(PvsP, PvsB);
+        bot.setActive(radioListener.getIsBot());
+        rBtnAction = radioListener;
+
+        gameBtnActionListener gameListener =  new gameBtnActionListener(matr, TextLabel);
+        gameListener.setBot(this.bot);
+        btnAcrion = gameListener;
+
+        startBtnAction = new chooseBtnActionListener();
+
     }
 
 

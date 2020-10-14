@@ -5,12 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MtBtnActionListener implements ActionListener {
+public class gameBtnActionListener implements ActionListener {
     private Matrer matrer;
     private JLabel textLabel;
-    boolean ifEnd = false;
+    private boolean ifEnd = false;
+    private Bot bot = null;
 
-    public MtBtnActionListener(Matrer matrer ,JLabel textLabel) {
+    public void setBot(Bot bot) {
+        this.bot = bot;
+    }
+
+    public gameBtnActionListener(Matrer matrer , JLabel textLabel) {
         this.matrer = matrer;
         this.textLabel = textLabel;
     }
@@ -34,14 +39,17 @@ public class MtBtnActionListener implements ActionListener {
         }
         btn.setEnabled(false);
         count++;
-
+        if(bot.getActive() && count % 2 != 0) {
+            bot.makeMove();
+        }
     }
+
+
 
     private void setToMatr(Container container, JButton btn) {
         GridBagLayout layout = (GridBagLayout) container.getLayout();
         int row = layout.getConstraints(btn).gridx;
         int col = layout.getConstraints(btn).gridy;
-        System.out.printf("y:%s x:%s", col, row);
         byte num;
         if(btn.getText() == "X") {
             num = 1;
