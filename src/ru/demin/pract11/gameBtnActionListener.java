@@ -36,10 +36,12 @@ public class gameBtnActionListener implements ActionListener {
             disableAllBtns(btn.getParent());
             setWinner();
             return;
+        } else if(count == 8) {
+            setDraw();
         }
         btn.setEnabled(false);
         count++;
-        if(bot.getActive() && count % 2 != 0) {
+        if(bot.getActive() && count % 2 != 0 && count != 9) {
             bot.makeMove();
         }
     }
@@ -75,6 +77,11 @@ public class gameBtnActionListener implements ActionListener {
         }
 
         textLabel.setText(winText);
+        textLabel.setForeground(Color.GREEN);
+    }
+
+    private void setDraw(){
+        textLabel.setText("Draw");
         textLabel.setForeground(Color.GREEN);
     }
 }
