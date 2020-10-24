@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ToDoList {
     private List<String> toDoList; // хранит задачи
-    private Commands commands;
+    private Commands<CommandsHandler> commands;
 
     public ToDoList() {
         toDoList = new ArrayList<>();

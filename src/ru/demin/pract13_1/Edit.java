@@ -2,7 +2,7 @@ package ru.demin.pract13_1;
 
 import java.util.List;
 
-public class Edit implements CommandsHandler {
+public class Edit implements CommandsHandler<List<String>> {
 
     @Override
     public void makeCommand(List<String> someList, String[] args) {
@@ -31,11 +31,6 @@ public class Edit implements CommandsHandler {
 
         someList.remove(index);
         someList.add(index, todo);
-
-    }
-
-    @Override
-    public void makeCommand(List<String> someList) {
 
     }
 }

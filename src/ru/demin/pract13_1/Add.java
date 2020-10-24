@@ -2,7 +2,7 @@ package ru.demin.pract13_1;
 
 import java.util.List;
 
-public class Add implements CommandsHandler {
+public class Add implements CommandsHandler<List<String>> {
 
     @Override
     public void makeCommand(List<String> someList, String... args) {
@@ -37,10 +37,5 @@ public class Add implements CommandsHandler {
             }
 
         }
-    }
-
-    @Override
-    public void makeCommand(List<String> someList) {
-
     }
 }

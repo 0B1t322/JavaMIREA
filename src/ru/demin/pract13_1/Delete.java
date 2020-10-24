@@ -2,7 +2,7 @@ package ru.demin.pract13_1;
 
 import java.util.List;
 
-public class Delete implements CommandsHandler{
+public class Delete implements CommandsHandler<List<String>> {
 
     @Override
     public void makeCommand(List<String> someList, String[] args) {
@@ -30,10 +30,5 @@ public class Delete implements CommandsHandler{
         }
 
         someList.remove(index);
-    }
-
-    @Override
-    public void makeCommand(List<String> someList) {
-
     }
 }

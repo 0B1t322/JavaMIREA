@@ -1,6 +1,8 @@
 package ru.demin.pract13_1;
 
-public class ListCmd implements CommandsHandler{
+import java.util.List;
+
+public class ListCmd implements CommandsHandler <List<String>> {
 
     @Override
     public void makeCommand(java.util.List<String> someList, String[] args) {
@@ -12,10 +14,5 @@ public class ListCmd implements CommandsHandler{
                 System.out.printf("%s: %s\n", i, someList.get(i));
             }
         }
-    }
-
-    @Override
-    public void makeCommand(java.util.List<String> someList) {
-        return;
     }
 }
