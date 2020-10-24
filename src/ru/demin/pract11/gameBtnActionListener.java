@@ -77,11 +77,11 @@ public class gameBtnActionListener implements ActionListener {
         }
 
         textLabel.setText(winText);
-        textLabel.setForeground(Color.GREEN);
+        textLabel.setForeground(Color.GREEN.darker());
     }
 
     private void setDraw(){
         textLabel.setText("Draw");
-        textLabel.setForeground(Color.GREEN);
+        textLabel.setForeground(Color.GREEN.darker());
     }
 }
