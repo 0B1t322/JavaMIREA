@@ -10,7 +10,6 @@ public class task_3 {
     final static String format = "+7 (%s%s%s) %s%s%s-%s%s-%s%s";
 
     public static void main(String[] args) {
-        Formatter formatter = new Formatter();
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<String> nums = new ArrayList<String>(Arrays.asList(
@@ -45,26 +44,7 @@ public class task_3 {
 
     public static String formatPhoneNumber(List<String> nums) {
         String phoneNumber = "+7 (";
-        /*
-        int i = 0;
-        for( ;i < 3;i++) {
-            phoneNumber += nums.get(i);
-        }
-        phoneNumber += " ";
-        for (; i < 6; i++) {
-            phoneNumber += nums.get(i);
-        }
-        phoneNumber += " ";
 
-        for(; i < 8; i++) {
-            phoneNumber += nums.get(i);
-        }
-
-        phoneNumber += " ";
-
-        for(; i < 10; i++) {
-            phoneNumber += nums.get(i);
-        }*/
         int i = 0;
         while (i < nums.size()){
             int count = 0;
@@ -101,5 +81,22 @@ public class task_3 {
         return phoneNumber;
     }
 
+    public static String getFormatedNubmer(String number) {
+        ArrayList<String> nums = new ArrayList<String>(Arrays.asList(
+                number.replace("+7","7").
+                        replace(" ", "").
+                        replace("-","").
+                        replace("(", "").
+                        replace(")", "").
+                        split("")));
+
+         if(nums.get(0).equals("8")){
+            nums.remove("8");
+            return formatPhoneNumber(nums);
+        } else {
+            nums.remove("7");
+            return formatPhoneNumber(nums);
+        }
+    }
 
 }
