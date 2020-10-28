@@ -26,7 +26,6 @@ public class TTTMatr implements Matrer {
     }
 
     private boolean checkIfEnd() {
-        // TODO алгоритм проверки победы на диагонали - вертикали - горизонтали
         if( checkDiagonal(-1) || checkDiagonal(1) ||
             checkLanes(-1)    || checkLanes(1)     )
         {

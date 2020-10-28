@@ -14,6 +14,10 @@ public class Commands<E> {
         commandsList.put(commandName, commandsHandler);
     }
 
+    public boolean ifCommandExsist(String command) {
+        return commandsList.containsKey(command);
+    }
+
     public E getCommand(String commandName)  {
         return commandsList.get(commandName);
     }
