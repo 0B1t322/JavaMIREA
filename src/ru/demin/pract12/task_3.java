@@ -93,10 +93,12 @@ public class task_3 {
          if(nums.get(0).equals("8")){
             nums.remove("8");
             return formatPhoneNumber(nums);
-        } else {
+        } else if (nums.get(0).equals("7")){
             nums.remove("7");
             return formatPhoneNumber(nums);
-        }
+        } else {
+             return formatPhoneNumber(nums);
+         }
     }
 
 }
