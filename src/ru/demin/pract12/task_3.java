@@ -90,10 +90,10 @@ public class task_3 {
                         replace(")", "").
                         split("")));
 
-         if(nums.get(0).equals("8")){
+         if(nums.get(0).equals("8") && nums.size() == 11){
             nums.remove("8");
             return formatPhoneNumber(nums);
-        } else if (nums.get(0).equals("7")){
+        } else if (nums.get(0).equals("7") && nums.size() == 11){
             nums.remove("7");
             return formatPhoneNumber(nums);
         } else {
