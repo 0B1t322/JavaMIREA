@@ -61,12 +61,12 @@ public class FilesSize {
         final long Gb = Mb * 1024;
         final long Tb = Gb * 1024;
 
-        if (size <  Kb)   return Form(           size     ) +  " b";
-        if (size < Mb)    return Form((double)size / Kb) + " Kb";
-        if (size < Gb)    return Form((double)size / Mb) + " Mb";
-        if (size < Tb)    return Form((double)size / Gb) + " Gb";
+        if (size <  Kb)   return Form(           size     ) +  " Б";
+        if (size < Mb)    return Form((double)size / Kb) + " Кб";
+        if (size < Gb)    return Form((double)size / Mb) + " Мб";
+        if (size < Tb)    return Form((double)size / Gb) + " Гб";
 
-        return Form((double)size / Tb) + " Tb"; // if(size > Tb)
+        return Form((double)size / Tb) + " Тб"; // if(size > Tb)
     }
 
     private static String Form (double d)
