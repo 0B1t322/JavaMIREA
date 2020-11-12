@@ -10,10 +10,10 @@ import java.util.logging.Level;
 
 public class FilesSize {
     private File dir;
-    private final String home = System.getProperty("user.home");
+
 
     public FilesSize(String path) throws IOException {
-        File folder = new File(home + path);
+        File folder = new File(path);
         if(folder.exists()) {
             if (!folder.isDirectory()) {
                 throw new IOException("Given file is not a directory");
