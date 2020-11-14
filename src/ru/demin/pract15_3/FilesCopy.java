@@ -13,7 +13,7 @@ public class FilesCopy {
         try {
             Files.copy(cur_dir, into_dir, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            MyLogger.log(FilesCopy.class, e.toString(), Level.WARNING);
+            MyLogger.log(e.toString(), Level.WARNING);
         }
     }
 
@@ -29,4 +29,5 @@ public class FilesCopy {
             );
         });
     }
+
 }

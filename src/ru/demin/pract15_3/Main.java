@@ -17,7 +17,7 @@ public class Main {
         try {
             FilesCopy.copy(curDir, dirInto);
         } catch (IOException ex) {
-            MyLogger.log(m, ex.toString(), Level.WARNING);
+            MyLogger.log(ex.toString(), Level.WARNING);
         }
     }
 }

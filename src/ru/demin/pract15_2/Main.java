@@ -18,7 +18,7 @@ public class Main {
         try {
             fs = new FilesSize(path);
         } catch (IOException ex) {
-            MyLogger.log(m,ex.toString(), Level.WARNING);
+            MyLogger.log(ex.toString(), Level.WARNING);
             return;
         }
         long size = fs.getSizeOfFiles();

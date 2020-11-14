@@ -6,8 +6,10 @@ public class Main {
     public static void main(String[] args) {
 //        example usage
         Main m = new Main();
-        MyLogger.log(m,"22");
-        MyLogger.log(m,"HELLO", Level.INFO);
-        MyLogger.log(m, "TEST", Level.WARNING);
+        MyLogger.log("Hello",Level.INFO);
+        MyLogger.log("HELLO", Level.INFO);
+        MyLogger.log("TEST", Level.WARNING);
+
+        MyLogger.ShowLog();
     }
 }
