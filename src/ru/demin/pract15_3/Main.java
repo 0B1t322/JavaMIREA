@@ -19,5 +19,7 @@ public class Main {
         } catch (IOException ex) {
             MyLogger.log(ex.toString(), Level.WARNING);
         }
+
+        MyLogger.ShowLog();
     }
 }
