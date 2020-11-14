@@ -56,7 +56,7 @@ public class MyLogger {
         try {
             ArrayList<String> list = new ArrayList<>();
             list.add(_msg);
-            Files.write(Paths.get(path_to_log), list, StandardOpenOption.APPEND);
+            Files.write(Paths.get(path_to_log), list, StandardOpenOption.APPEND, StandardOpenOption.CREATE);
         } catch (IOException exception) {
             exception.printStackTrace();
         }

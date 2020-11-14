@@ -24,5 +24,6 @@ public class Main {
         long size = fs.getSizeOfFiles();
 
         System.out.println("Размер папки " + path + " " + FilesSize.formatSize(size));
+
     }
 }
