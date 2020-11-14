@@ -19,11 +19,13 @@ public class Main {
             fs = new FilesSize(path);
         } catch (IOException ex) {
             MyLogger.log(ex.toString(), Level.WARNING);
+            MyLogger.ShowLog();
             return;
         }
         long size = fs.getSizeOfFiles();
 
-        System.out.println("Размер папки " + path + " " + FilesSize.formatSize(size));
+        MyLogger.log("Размер папки " + path + " " + FilesSize.formatSize(size), Level.INFO);
+        MyLogger.ShowLog();
 
     }
 }
