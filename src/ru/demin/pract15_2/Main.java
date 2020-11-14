@@ -12,7 +12,7 @@ public class Main {
         Main m = new Main();
 
         String path = scanner.next();
-
+        MyLogger.log("your input: " + path, Level.INFO);
         FilesSize fs;
 
         try {

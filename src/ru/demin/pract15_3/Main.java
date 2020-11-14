@@ -12,7 +12,9 @@ public class Main {
         Main m = new Main();
 
         String curDir = scaner.next(); // dir that we copy
+        MyLogger.log("your input: " + curDir, Level.INFO);
         String dirInto = scaner.next(); // into this dir
+        MyLogger.log("your input: " + dirInto, Level.INFO);
 
         try {
             FilesCopy.copy(curDir, dirInto);
