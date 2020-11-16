@@ -29,7 +29,10 @@ public class ImagesLoader {
         ArrayList<String> listOfName = new ArrayList<>();
         for(var imageUrl: sourcesUrl) {
             try {
-                byte[] bytes = Jsoup.connect(imageUrl).ignoreContentType(true).execute().bodyAsBytes();
+                byte[] bytes = Jsoup.connect(imageUrl)
+                        .ignoreContentType(true)
+                        .execute().bodyAsBytes();
+
                 ByteBuffer buff = ByteBuffer.wrap(bytes);
                 String fileName = getNameOfImageFromUrl(imageUrl);
 
