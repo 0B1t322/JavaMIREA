@@ -53,6 +53,7 @@ public class ImagesLoader {
     ) throws IOException {
         final String pathToImage = pathToDir+"/"+fileName;
         File dir = new File(pathToDir);
+
         if(!dir.exists()) {
             boolean res = dir.mkdir();
             if(!res) {
@@ -63,8 +64,8 @@ public class ImagesLoader {
         File image = new File(pathToImage);
         BufferedImage bufferedImage;
 
-        String[] fileNameParts = fileName.split("\\.");
-        String format = fileNameParts[fileNameParts.length-1];
+        String[] parts = fileName.split("\\.");
+        String format = parts[parts.length-1];
 
         InputStream in = new ByteArrayInputStream(imageDataBytes.array());
         bufferedImage = ImageIO.read(in);
