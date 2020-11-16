@@ -47,7 +47,10 @@ public class ImagesLoader {
         return listOfName;
     }
 
-    private boolean setBufferBytesImage(ByteBuffer imageDataBytes, String fileName) throws IOException {
+    private boolean setBufferBytesImage(
+            ByteBuffer imageDataBytes,
+            String fileName
+    ) throws IOException {
         final String pathToImage = pathToDir+"/"+fileName;
         File dir = new File(pathToDir);
         if(!dir.exists()) {
