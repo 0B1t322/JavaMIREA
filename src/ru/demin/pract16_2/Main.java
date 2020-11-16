@@ -17,11 +17,12 @@ public class Main {
         try {
             List<String> sources = getSources(url);
             ImagesLoader imagesLoader = new ImagesLoader(sources,"images");
-            imagesLoader.downloadAllImages();
+            imagesLoader.downloadAllImages().forEach(System.out::println);
         } catch (IOException ex) {
             MyLogger.log(ex.getLocalizedMessage(), Level.WARNING);
         }
     }
+
 
     public static List<String> getSources(String url) throws IOException {
         ArrayList<String> sources = new ArrayList<>();

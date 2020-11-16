@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
@@ -24,21 +25,26 @@ public class ImagesLoader {
         this.pathToDir = pathToDir;
     }
 
-    public void downloadAllImages() {
+    public List<String> downloadAllImages() {
+        ArrayList<String> listOfName = new ArrayList<>();
         for(var imageUrl: sourcesUrl) {
             try {
                 byte[] bytes = Jsoup.connect(imageUrl).ignoreContentType(true).execute().bodyAsBytes();
                 ByteBuffer buff = ByteBuffer.wrap(bytes);
                 String fileName = getNameOfImageFromUrl(imageUrl);
 
-                setBufferBytesImage(buff, fileName);
+                if(setBufferBytesImage(buff, fileName)) {
+                    listOfName.add(fileName);
+                }
             } catch (IOException exception) {
                 MyLogger.log(exception.getMessage(), Level.WARNING);
             }
         }
+
+        return listOfName;
     }
 
-    private void setBufferBytesImage(ByteBuffer imageDataBytes, String fileName) throws IOException {
+    private boolean setBufferBytesImage(ByteBuffer imageDataBytes, String fileName) throws IOException {
         final String pathToImage = pathToDir+"/"+fileName;
         File dir = new File(pathToDir);
         if(!dir.exists()) {
@@ -56,7 +62,7 @@ public class ImagesLoader {
 
         InputStream in = new ByteArrayInputStream(imageDataBytes.array());
         bufferedImage = ImageIO.read(in);
-        ImageIO.write(bufferedImage, format, image);
+        return ImageIO.write(bufferedImage, format, image);
     }
 
     private static String getNameOfImageFromUrl(String url) {
