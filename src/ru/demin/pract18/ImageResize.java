@@ -7,7 +7,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 
 public class ImageResize {
-    private ArrayDeque<File> filesPool;
+    private final ArrayDeque<File> filesPool;
     private final String dstFolder;
 
     synchronized public File getFile() {
