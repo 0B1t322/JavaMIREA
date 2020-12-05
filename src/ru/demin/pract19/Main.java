@@ -20,7 +20,6 @@ public class Main {
             do {
                 to = random.nextInt(countOfUsers);
             } while (to == from);
-
             bankRunner.addTransfer(from,to,money);
         }
 
